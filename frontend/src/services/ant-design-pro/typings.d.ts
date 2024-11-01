@@ -1,104 +1,161 @@
-// @ts-ignore
-/* eslint-disable */
-
 declare namespace API {
-  type CurrentUser = {
-    name?: string;
-    username?: string;
-    avatar?: string;
-    userid?: string;
-    email?: string;
-    signature?: string;
-    title?: string;
-    group?: string;
-    tags?: { key?: string; label?: string }[];
-    notifyCount?: number;
-    unreadCount?: number;
-    country?: string;
-    access?: string;
-    isAdmin: boolean;
-    geographic?: {
-      province?: { label?: string; key?: string };
-      city?: { label?: string; key?: string };
-    };
-    address?: string;
-    phone?: string;
-  };
-
-  type LoginResult = {
-    status?: string;
-    type?: string;
-    currentAuthority?: string;
-    token?: string;
-  };
-
-  type PageParams = {
-    current?: number;
-    pageSize?: number;
-  };
-
-  type RuleListItem = {
-    key?: number;
-    disabled?: boolean;
-    href?: string;
-    avatar?: string;
-    name?: string;
-    owner?: string;
-    desc?: string;
-    callNo?: number;
-    status?: number;
-    updatedAt?: string;
-    createdAt?: string;
-    progress?: number;
-  };
-
-  type RuleList = {
-    data?: RuleListItem[];
-    /** 列表的内容总数 */
-    total?: number;
+  type ApiResponseClass = {
     success?: boolean;
+    data?: Class;
   };
 
-  type FakeCaptcha = {
-    code?: number;
-    status?: string;
+  type ApiResponseCourse = {
+    success?: boolean;
+    data?: Course;
   };
 
-  type LoginParams = {
+  type ApiResponseGrade = {
+    success?: boolean;
+    data?: Grade;
+  };
+
+  type ApiResponseListClass = {
+    success?: boolean;
+    data?: Class[];
+  };
+
+  type ApiResponseListCourse = {
+    success?: boolean;
+    data?: Course[];
+  };
+
+  type ApiResponseListGrade = {
+    success?: boolean;
+    data?: Grade[];
+  };
+
+  type ApiResponseListMapStringObject = {
+    success?: boolean;
+    data?: Record<string, any>[];
+  };
+
+  type ApiResponseListStudent = {
+    success?: boolean;
+    data?: Student[];
+  };
+
+  type ApiResponseStudent = {
+    success?: boolean;
+    data?: Student;
+  };
+
+  type ApiResponseVoid = {
+    success?: boolean;
+    data?: Record<string, any>;
+  };
+
+  type AuthRequest = {
     username?: string;
     password?: string;
-    autoLogin?: boolean;
-    type?: string;
+    userId?: string;
   };
 
-  type ErrorResponse = {
-    /** 业务约定的错误码 */
-    errorCode: string;
-    /** 业务上的错误信息 */
-    errorMessage?: string;
-    /** 业务上的请求是否成功 */
-    success?: boolean;
+  type Class = {
+    classId?: number;
+    className?: string;
   };
 
-  type NoticeIconList = {
-    data?: NoticeIconItem[];
-    /** 列表的内容总数 */
-    total?: number;
-    success?: boolean;
+  type Client = {
+    cid?: number;
+    image?: string;
+    cname?: string;
+    password?: string;
+    phoneNumber?: string;
+    email?: string;
+    createTime?: string;
+    ckind?: number;
+    test?: number;
   };
 
-  type NoticeIconItemType = 'notification' | 'message' | 'event';
+  type Course = {
+    courseId?: number;
+    courseName?: string;
+  };
 
-  type NoticeIconItem = {
-    id?: string;
-    extra?: string;
-    key?: string;
-    read?: boolean;
-    avatar?: string;
-    title?: string;
-    status?: string;
-    datetime?: string;
-    description?: string;
-    type?: NoticeIconItemType;
+  type deleteClassParams = {
+    id: number;
+  };
+
+  type deleteClientParams = {
+    id: number;
+  };
+
+  type deleteCourseParams = {
+    id: number;
+  };
+
+  type deleteGradeParams = {
+    id: number;
+  };
+
+  type deleteStudentParams = {
+    id: number;
+  };
+
+  type getClassByIdParams = {
+    id: number;
+  };
+
+  type getClientParams = {
+    id: number;
+  };
+
+  type getCourseByIdParams = {
+    id: number;
+  };
+
+  type getGradeByIdParams = {
+    id: number;
+  };
+
+  type getStudentByIdParams = {
+    id: number;
+  };
+
+  type getUserParams = {
+    token: string;
+  };
+
+  type Grade = {
+    gradeId?: number;
+    studentId?: number;
+    courseId?: number;
+    score?: number;
+  };
+
+  type helloParams = {
+    name?: string;
+  };
+
+  type Student = {
+    studentId?: number;
+    name?: string;
+    gender?: string;
+    classId?: number;
+  };
+
+  type updateClassParams = {
+    id: number;
+  };
+
+  type updateClientParams = {
+    id: number;
+  };
+
+  type updateCourseParams = {
+    id: number;
+  };
+
+  type updateGradeParams = {
+    id: number;
+  };
+
+  type updateStudentParams = {
+    id: number;
   };
 }

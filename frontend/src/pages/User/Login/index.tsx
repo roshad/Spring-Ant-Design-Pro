@@ -1,6 +1,6 @@
 import { Footer } from '@/components';
-import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { login } from '@/services/ant-design-pro/authController';
+
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -339,15 +339,15 @@ const Login: React.FC = () => {
                     ),
                   },
                 ]}
-                onGetCaptcha={async (phone) => {
-                  const result = await getFakeCaptcha({
-                    phone,
-                  });
-                  if (!result) {
-                    return;
-                  }
-                  message.success('获取验证码成功！验证码为：1234');
-                }}
+                // onGetCaptcha={async (phone) => {
+                //   const result = await getFakeCaptcha({
+                //     phone,
+                //   });
+                //   if (!result) {
+                //     return;
+                //   }
+                //   message.success('获取验证码成功！验证码为：1234');
+                // }}
               />
             </>
           )}

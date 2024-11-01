@@ -1,112 +1,146 @@
 declare namespace API {
-  type ApiResponse = {
-    code?: number;
-    type?: string;
-    message?: string;
+  type ApiResponseCourse = {
+    success?: boolean;
+    data?: Course;
   };
 
-  type Category = {
-    id?: number;
-    name?: string;
+  type ApiResponseGrade = {
+    success?: boolean;
+    data?: Grade;
   };
 
-  type deleteOrderParams = {
-    /** ID of the order that needs to be deleted */
-    orderId: number;
+  type ApiResponseListCourse = {
+    success?: boolean;
+    data?: Course[];
   };
 
-  type deletePetParams = {
-    api_key?: string;
-    /** Pet id to delete */
-    petId: number;
+  type ApiResponseListGrade = {
+    success?: boolean;
+    data?: Grade[];
   };
 
-  type deleteUserParams = {
-    /** The name that needs to be deleted */
-    username: string;
+  type ApiResponseListStudent = {
+    success?: boolean;
+    data?: Student[];
   };
 
-  type findPetsByStatusParams = {
-    /** Status values that need to be considered for filter */
-    status: ('available' | 'pending' | 'sold')[];
+  type ApiResponseStudent = {
+    success?: boolean;
+    data?: Student;
   };
 
-  type findPetsByTagsParams = {
-    /** Tags to filter by */
-    tags: string[];
+  type ApiResponseVoid = {
+    success?: boolean;
+    data?: Record<string, any>;
   };
 
-  type getOrderByIdParams = {
-    /** ID of pet that needs to be fetched */
-    orderId: number;
-  };
-
-  type getPetByIdParams = {
-    /** ID of pet to return */
-    petId: number;
-  };
-
-  type getUserByNameParams = {
-    /** The name that needs to be fetched. Use user1 for testing.  */
-    username: string;
-  };
-
-  type loginUserParams = {
-    /** The user name for login */
-    username: string;
-    /** The password for login in clear text */
-    password: string;
-  };
-
-  type Order = {
-    id?: number;
-    petId?: number;
-    quantity?: number;
-    shipDate?: string;
-    /** Order Status */
-    status?: 'placed' | 'approved' | 'delivered';
-    complete?: boolean;
-  };
-
-  type Pet = {
-    id?: number;
-    category?: Category;
-    name: string;
-    photoUrls: string[];
-    tags?: Tag[];
-    /** pet status in the store */
-    status?: 'available' | 'pending' | 'sold';
-  };
-
-  type Tag = {
-    id?: number;
-    name?: string;
-  };
-
-  type updatePetWithFormParams = {
-    /** ID of pet that needs to be updated */
-    petId: number;
-  };
-
-  type updateUserParams = {
-    /** name that need to be updated */
-    username: string;
-  };
-
-  type uploadFileParams = {
-    /** ID of pet to update */
-    petId: number;
-  };
-
-  type User = {
-    id?: number;
+  type AuthRequest = {
     username?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
     password?: string;
-    phone?: string;
-    /** User Status */
-    userStatus?: number;
+    userId?: string;
+  };
+
+  type Class = {
+    classId?: number;
+    className?: string;
+  };
+
+  type Client = {
+    cid?: number;
+    image?: string;
+    cname?: string;
+    password?: string;
+    phoneNumber?: string;
+    email?: string;
+    createTime?: string;
+    ckind?: number;
+    test?: number;
+  };
+
+  type Course = {
+    courseId?: number;
+    courseName?: string;
+  };
+
+  type deleteClassParams = {
+    id: number;
+  };
+
+  type deleteClientParams = {
+    id: number;
+  };
+
+  type deleteCourseParams = {
+    id: number;
+  };
+
+  type deleteGradeParams = {
+    id: number;
+  };
+
+  type deleteStudentParams = {
+    id: number;
+  };
+
+  type getClassByIdParams = {
+    id: number;
+  };
+
+  type getClientParams = {
+    id: number;
+  };
+
+  type getCourseByIdParams = {
+    id: number;
+  };
+
+  type getGradeByIdParams = {
+    id: number;
+  };
+
+  type getStudentByIdParams = {
+    id: number;
+  };
+
+  type getUserParams = {
+    token: string;
+  };
+
+  type Grade = {
+    gradeId?: number;
+    studentId?: number;
+    courseId?: number;
+    score?: number;
+  };
+
+  type helloParams = {
+    name?: string;
+  };
+
+  type Student = {
+    studentId?: number;
+    name?: string;
+    gender?: string;
+    classId?: number;
+  };
+
+  type updateClassParams = {
+    id: number;
+  };
+
+  type updateClientParams = {
+    id: number;
+  };
+
+  type updateCourseParams = {
+    id: number;
+  };
+
+  type updateGradeParams = {
+    id: number;
+  };
+
+  type updateStudentParams = {
+    id: number;
   };
 }

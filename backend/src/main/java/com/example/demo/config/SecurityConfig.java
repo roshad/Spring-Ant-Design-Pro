@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -29,8 +28,11 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable) // 替代 .csrf().disable()
                 .authorizeHttpRequests(authorize -> {
                     authorize
-                            .requestMatchers("/auth/account", "/auth/register", "/auth/currentUser").permitAll() // 替代 antMatchers
-                            .anyRequest().authenticated();
+//                            .requestMatchers("/auth/account", "/auth/register", "/auth/currentUser", "/students", "/clients")
+//                            .permitAll() // 替代 antMatchers
+                            .anyRequest()
+                            .permitAll();
+//                            .authenticated();
                 })
                 .authenticationProvider(authenticationProvider()); // 添加 AuthenticationProvider
         return http.build();

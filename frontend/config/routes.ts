@@ -22,12 +22,7 @@ export default [
       },
     ],
   },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
+
   {
     path: '/admin',
     name: 'admin',
@@ -52,19 +47,55 @@ export default [
     component: './TableList',
   },
   {
+    name: '分数表',
+    icon: 'table',
+    path: '/grades',
+    component: './TableGrades',
+  },
+  {
+    name: '班级表',
+    icon: 'table',
+    path: '/classes',
+    component: './TableClasses',
+  },
+  {
+    name: '课程表',
+    icon: 'table',
+    path: '/courses',
+    component: './TableCourses',
+  },
+  {
+    name: '学生表',
+    icon: 'table',
+    path: '/students',
+    component: './TableStudents',
+  },
+  {
+    name: '成绩表',
+    icon: 'table',
+    path: '/score',
+    component: './TableScore',
+  },
+  {
+    name: '统计',
+    icon: 'table',
+    path: '/stats',
+    component: 'TableStats',
+  },
+  {
     path: '/',
-    redirect: '/welcome',
+    redirect: '/grades',
   },
   {
     path: '*',
     layout: false,
     component: './404',
   },
-  {
-    name: 'account',
-    icon: 'user',
-    path: '/account',
-    component: './AccountSettings'
+  // {
+  //   name: 'account',
+  //   icon: 'user',
+  //   path: '/account',
+  //   component: './AccountSettings'
 
-  },
+  // },
 ];

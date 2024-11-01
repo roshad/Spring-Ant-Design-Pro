@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 
 @RestController
-@RequestMapping("/auth") //之后的所有请求都以/auth开头
+@RequestMapping("/api/auth") //之后的所有请求都以/auth开头
 public class AuthController {
 
     @Autowired
